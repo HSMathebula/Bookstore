@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './hom';
-import Categorypage from './categories';
+import Categorypage from './Categories';
 import Navbar from './Navbar';
 
 const BookstoreContainer = () => (
@@ -9,7 +9,7 @@ const BookstoreContainer = () => (
     <Navbar />
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/categories" element={<Categorypage />} />
+      <Route path="/Categories" element={<Categorypage />} />
     </Routes>
   </div>
 
