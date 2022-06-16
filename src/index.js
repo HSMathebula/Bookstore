@@ -1,9 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './redux/configureStore';
-import './index.css';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 import App from './App';
+import rootReducer from './redux/configureStore';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
