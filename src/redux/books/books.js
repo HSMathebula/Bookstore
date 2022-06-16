@@ -49,7 +49,19 @@ export function addBook(book) {
 }
 
 export function removeBook(index) {
-  return { type: REMOVEBOOK, index };
+  return async (dispatch) => {
+    const requestOptions = {
+      method: 'DELETE',
+      redirect: 'follow',
+    };
+    const response = await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/38b59qFydtEoTzEgXCix/books/${itemid}`, requestOptions)
+      .then((response) => response.text())
+      .then((result) => result)
+      .catch((error) => `Adding Failed. ${error}`);
+    if (response === 'The book was deleted successfully!') {
+      dispatch({ type: REMOVEBOOk, itemid });
+    }
+  };
 }
 
 export function getBooks() {
