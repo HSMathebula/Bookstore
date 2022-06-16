@@ -64,6 +64,10 @@ export function removeBook(index) {
   };
 }
 
+export function setLoading(loading) {
+  return { type: SETLOADING, loading };
+}
+
 export function getBooks() {
   return async (dispatch) => {
     dispatch(setLoading(true));
