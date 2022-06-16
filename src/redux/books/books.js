@@ -1,5 +1,5 @@
 const ADDBOOk = 'book-store/books/ADD BOOK';
-const REMOVEBOOk = 'book-store/books/REMOVE BOOK';
+const REMOVEBOOK = 'book-store/books/REMOVE BOOK';
 
 const defaultState = [
   { genre: 'Comedy', title: 'Harry Potter', author: 'JK Rowling' },
@@ -10,7 +10,7 @@ export default function booksReducer(state = defaultState, action) {
   switch (action.type) {
     case ADDBOOk:
       return [...state, action.book];
-    case REMOVEBOOk:
+    case REMOVEBOOK:
       return [
         ...state.slice(0, action.index),
         ...state.slice(action.index + 1),
@@ -25,5 +25,5 @@ export function addBook(book) {
 }
 
 export function removeBook(index) {
-  return { type: REMOVEBOOk, index };
+  return { type: REMOVEBOOK, index };
 }
