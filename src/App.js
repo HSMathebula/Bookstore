@@ -1,24 +1,24 @@
-import { Link, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import Books from './components/Books';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import BookList from './components/BookList';
 import Categories from './components/Categories';
+import Header from './components/Header';
+import './App.css';
 
-const App = () => (
-  <div>
-    <header>
-      <h1>BookStore CMS</h1>
-      <nav>
-        <Link style={{ marginRight: '1rem' }} to="/">
-          Books
-        </Link>
-        <Link to="/categories">CATEGORIES</Link>
-      </nav>
-    </header>
-    <Routes>
-      <Route path="/" element={<Books />} />
-      <Route path="/categories" element={<Categories />} />
-    </Routes>
-  </div>
-);
+class App extends React.PureComponent {
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" exact element={<BookList />} />
+            <Route path="/Categories" element={<Categories />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
 
 export default App;
