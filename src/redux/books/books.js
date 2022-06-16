@@ -27,7 +27,25 @@ export default function booksReducer(state = defaultState, action) {
 }
 
 export function addBook(book) {
-  return { type: ADDBOOK, book };
+  return async (dispatch) => {
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(book),
+      redirect: 'follow',
+    };
+
+    const response = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/38b59qFydtEoTzEgXCix/books/', requestOptions)
+      .then((response) => response.text())
+      .then((result) => result)
+      .catch((error) => `Adding Failed. ${error}`);
+    if (response === 'Created') {
+      dispatch({ type: ADDBOOk, book });
+    }
+  };
 }
 
 export function removeBook(index) {
