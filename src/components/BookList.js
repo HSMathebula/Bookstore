@@ -17,15 +17,15 @@ function BookList() {
   return (
     <div>
       {loading ? 'Loading...'
-      : books.map((el) => (
-        <Book
-          key={el.item_id}
-          itemid={el.item_id}
-          category={el.category}
-          title={el.title}
-          author={el.author}
-        />
-      ))}
+        : books.map((el) => (
+          <Book
+            key={el.item_id}
+            itemid={el.item_id}
+            category={el.category}
+            title={el.title}
+            author={el.author}
+          />
+        ))}
       <Form />
     </div>
   );

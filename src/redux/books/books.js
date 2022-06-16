@@ -17,11 +17,11 @@ export default function booksReducer(state = defaultState, action) {
         ...state,
         books: state.books.filter((el) => el.item_id !== action.itemid),
       };
-      case SETLOADING:
+    case SETLOADING:
       return { ...state, loading: action.loading };
-      case GETBOOKS:
-        return { ...state, books: [...action.books] };
-      default:
+    case GETBOOKS:
+      return { ...state, books: [...action.books] };
+    default:
       return state;
   }
 }
@@ -43,12 +43,12 @@ export function addBook(book) {
       .then((result) => result)
       .catch((error) => `Adding Failed. ${error}`);
     if (response === 'Created') {
-      dispatch({ type: ADDBOOk, book });
+      dispatch({ type: ADDBOOK, book });
     }
   };
 }
 
-export function removeBook(index) {
+export function removeBook(itemid) {
   return async (dispatch) => {
     const requestOptions = {
       method: 'DELETE',
@@ -59,7 +59,7 @@ export function removeBook(index) {
       .then((result) => result)
       .catch((error) => `Adding Failed. ${error}`);
     if (response === 'The book was deleted successfully!') {
-      dispatch({ type: REMOVEBOOk, itemid });
+      dispatch({ type: REMOVEBOOK, itemid });
     }
   };
 }
