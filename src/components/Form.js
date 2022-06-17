@@ -4,7 +4,7 @@ import { addBook } from '../redux/books/books';
 
 function Form() {
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
+  const [author, setAuthor] = useState('Hung koof');
   const [category, setCategory] = useState('');
   const [adding, setAdding] = useState(false);
   const { books } = useSelector((state) => state.booksReducer);
@@ -14,9 +14,9 @@ function Form() {
     setTitle(e.target.value);
   };
 
-  const handleAuthorInput = (e) => {
-    setAuthor(e.target.value);
-  };
+  // const handleAuthorInput = (e) => {
+  //   setAuthor(e.target.value);
+  // };
 
   const handleGenreChange = (e) => {
     setCategory(e.target.value);
@@ -32,12 +32,13 @@ function Form() {
   const dispatch = useDispatch();
   return (
     <form>
+      <h2>ADD NEW BOOK</h2>
       <input type="text" placeholder="Title" value={title} onChange={(e) => handleTitleInput(e)} />
-      <input type="text" placeholder="Author" value={author} onChange={(e) => handleAuthorInput(e)} />
       <select value={category} onChange={(e) => handleGenreChange(e)}>
-        <option value="">Select Category</option>
+        <option className="option1" value="">Select Category</option>
         <option value="Action">Action</option>
         <option value="Economy">Economy</option>
+        <option value="Economy">Motivation</option>
         <option value="Science Fiction">Science Fiction</option>
       </select>
       <button
@@ -46,9 +47,6 @@ function Form() {
         onClick={async () => {
           if (title === '') {
             setMessage('Please Enter Book Name.');
-            return false;
-          } if (author === '') {
-            setMessage('Please Enter Author.');
             return false;
           } if (category === '') {
             setMessage('Please select Category.');
