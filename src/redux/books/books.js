@@ -45,7 +45,7 @@ export function addBook(book) {
       redirect: 'follow',
     };
 
-    const response = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/38b59qFydtEoTzEgXCix/books/', requestOptions)
+    const response = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/TxyIjuH7mtO8q6rLugXn/books/', requestOptions)
       .then((response) => response.text())
       .then((result) => result)
       .catch((error) => `Adding Failed. ${error}`);
@@ -61,7 +61,7 @@ export function removeBook(itemid) {
       method: 'DELETE',
       redirect: 'follow',
     };
-    const response = await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/38b59qFydtEoTzEgXCix/books/${itemid}`, requestOptions)
+    const response = await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/TxyIjuH7mtO8q6rLugXn/books/${itemid}`, requestOptions)
       .then((response) => response.text())
       .then((result) => result)
       .catch((error) => `Adding Failed. ${error}`);
@@ -81,7 +81,7 @@ export function getBooks() {
     const books = [];
     let failureAPI = false;
     let failureMessage = '';
-    await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/38b59qFydtEoTzEgXCix/books')
+    await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/TxyIjuH7mtO8q6rLugXn/books/')
       .then((response) => {
         if (response.ok) {
           return response.text();
