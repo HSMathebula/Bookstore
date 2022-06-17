@@ -1,7 +1,7 @@
 ### Bookstore
 A simple bookstore designed with react and redux.
 
-![screenshot](./screenshot_1.png)
+![screenshot](./Screenshot_1.png)
 
 ### Built With
 React
