@@ -7,7 +7,7 @@ A simple bookstore designed with react and redux.
 React
 Redux
 Live Demo Links
-(Will be added soon)
+https://luxury-kataifi-711d32.netlify.app/
 
 ### Getting Started
 To get a local copy up and running follow these simple example steps.
